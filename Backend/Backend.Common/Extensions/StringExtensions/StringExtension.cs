@@ -13,5 +13,12 @@ namespace Backend.Common.Extensions.StringExtensions
             var bytes = Encoding.ASCII.GetBytes(input);
             return BitConverter.ToString(md5.ComputeHash(bytes)).Replace("-", string.Empty);
         }
+
+        public static string GetSHA512Hash(this string input)
+        {
+            var sha512 = SHA512.Create();
+            var bytes = Encoding.ASCII.GetBytes(input);
+            return BitConverter.ToString(sha512.ComputeHash(bytes)).Replace("-", string.Empty);
+        }
     }
 }
